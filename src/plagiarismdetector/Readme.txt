@@ -1,14 +1,13 @@
-Take Home Coding challenge
 Plagiarism Detection Program
 
-Authod: Harsh Rana
+Author: Harsh Rana
 Date: October 10, 2018
 
 Description
 This program uses a dual input stream to calculate how similar two pieces of texts are, given a list of synonyms. It does so by comparing n-tuples between the two documents and cross-checking with the synonym list.
 
 Version assumptions and comments
-This algorithm is design to compare identical pieces of text for similarities. This version of the solution decreases space complexity significantly by maintaining a running input stream and not storing either of the input files in memory to be able to process huge chucks of data. If the requirement was to consider all possible tupples (not just tupples in the same position), I would modify the program to store one of the two inputs in memory in a hashset, where the synonym file would be used to create different allowed versions of the same tupple and run all tupples in the other input through it, checking for copies. A Hashset would be used due to the fast retrieval (.contains()) method which has a time complexity of O(1).
+This algorithm is design to compare identical pieces of text for similarities. This version of the solution decreases space complexity significantly by maintaining a running input stream and not storing either of the input files in memory to be able to process huge chucks of data. If the requirement was to consider all possible tuples (not just tuples in the same position), I would modify the program to store one of the two inputs in memory in a hashset, where the synonym file would be used to create different allowed versions of the same tuple and run all tuples in the other input through it, checking for copies. A Hashset would be used due to the fast retrieval (.contains()) method which has a time complexity of O(1).
 
 Time and Space Complexity
 If there are 'n' words in the syns file, 'm' words in input1 and 'k' words in input2, this program has a time complexity of O(n + 3* (min(m, k)), thus linear time complexity. It has a space complexity of O(n) as well (discounting the temporary variables made, with the synonyms HashMap being the biggest store data).
